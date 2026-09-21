@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>智慧通勤風險通知系統</title>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <!-- 導覽列 -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <div class="logo">🚌 智慧通勤</div>
+      <button class="menu-toggle" id="menuToggle" aria-label="選單">☰</button>
+      <nav class="nav-links" id="navLinks">
+        <a href="#home">首頁</a>
+        <a href="#news">最新消息</a>
+        <a href="#charts">數據圖表</a>
+        <a href="#about">關於系統</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 主視覺 -->
+  <section id="home" class="hero">
+    <div class="container">
+      <h1>智慧通勤風險通知系統</h1>
+      <p>即時掌握溫度、降雨機率與空氣品質，讓每天的通勤更安心</p>
+      <a href="#charts" class="btn">查看最新數據</a>
+    </div>
+  </section>
+
+  <!-- 最新消息 -->
+  <section id="news" class="section">
+    <div class="container">
+      <h2 class="section-title">最新消息</h2>
+      <div class="news-grid" id="newsGrid">
+        <!-- 由 JS 動態產生，也可直接寫靜態內容 -->
+      </div>
+    </div>
+  </section>
+
+  <!-- 數據圖表（未來可連接 MySQL） -->
+  <section id="charts" class="section charts-section">
+    <div class="container">
+      <h2 class="section-title">數據圖表</h2>
+      <p class="section-desc">
+        目前顯示模擬資料。未來可連接 MySQL 資料庫，透過 API 即時更新溫度、降雨機率與 AQI 歷史趨勢。
+      </p>
+
+      <div class="charts-grid">
+        <div class="chart-card">
+          <h3>近 7 日最高溫度 (°C)</h3>
+          <canvas id="tempChart"></canvas>
+        </div>
+        <div class="chart-card">
+          <h3>近 7 日最高降雨機率 (%)</h3>
+          <canvas id="rainChart"></canvas>
+        </div>
+        <div class="chart-card full-width">
+          <h3>近 7 日空氣品質 AQI</h3>
+          <canvas id="aqiChart"></canvas>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 關於系統 -->
+  <section id="about" class="section about-section">
+    <div class="container">
+      <h2 class="section-title">關於系統</h2>
+      <div class="about-content">
+        <p>本系統透過 GitHub Actions 每日自動執行，整合天氣與空氣品質 API，並以 Telegram 推播通勤建議。</p>
+        <ul>
+          <li>降雨機率 ≥ 60% → 提醒攜帶雨傘</li>
+          <li>最高溫度 ≥ 33°C → 提醒防曬與補充水分</li>
+          <li>AQI ≥ 100 → 提醒配戴口罩</li>
+        </ul>
+        <p class="future-note">未來規劃：將歷史資料存入 MySQL，並在此網頁動態呈現趨勢圖表。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 頁尾 -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 智慧通勤風險通知系統 | 使用 GitHub Pages 託管</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
